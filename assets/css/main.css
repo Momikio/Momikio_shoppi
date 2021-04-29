@@ -361,15 +361,27 @@ padding: 8px 16px 8px;
   height: var(--header-with-search-height);
   display: flex;
   align-items: center;
-  margin:8px 8px 0;
+  margin: 0 8px;
+ 
+}
+.header__mobile-search{
+padding: 0 8px;
+display: none;
+}
+.header__mobile-search i {
+  font-size: 2rem;
+  color: #fff;
 }
 /* phần logo shoopy */
 .header__logo {
   width: 20rem;
+  -webkit-tap-highlight-color: transparent;
 }
 .header__logo-link{
   text-decoration: none;
   color: transparent;
+  display: block;
+  line-height:0;
 }
 .header__logo-img {
   width: 15rem;
@@ -408,7 +420,7 @@ display: initial;
   box-shadow: 0 1px 5px #b8b8b8;
   display: none;
   overflow: hidden;
-  z-index: 2;
+  z-index: 30;
 }
 .hsearch-history-heading{
   margin: 6px 12px;
@@ -506,6 +518,7 @@ margin:6px 0 0;
   border-radius: 2px;
   overflow: hidden;
   display: none;
+  z-index: 22;
   animation: fadeIn linear 0.2s;
 }
 .hsearch-option-item {
@@ -533,7 +546,7 @@ margin:6px 0 0;
 .header__cart {
   width: 14rem;
   text-align: center;
-  
+  -webkit-tap-highlight-color: transparent;
 }
 .header__cart-wrap{
    position: relative;
@@ -575,7 +588,7 @@ cursor: pointer;
    animation: notifyGrowth ease-in 0.2s;
    display:none ; 
    cursor: default;
-   z-index: 2;
+   z-index:22;
  
 }
 .cart__info-none{
@@ -706,6 +719,54 @@ color: var(--primary-color);
 .btn.hcart__view-cart:hover{
   background-color: #f05d40;
 }
+/* Header sort bar */
+.header__sort-bar{
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  height: var(--header-sort-bar-height);
+  background-color: #f5f5f5;
+display: flex;
+list-style: none;
+z-index: 10;
+margin: 0;
+padding-left: 0;
+border-top: 1px solid #e5e5e5;
+border-bottom: 1px solid #e5e5e5;
+display: none;
+
+}
+.header__sort-link{
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  display: block;
+  height: 100%;
+  line-height: var(--header-sort-bar-height);
+  text-align: center;
+  position: relative;
+  
+
+}
+.header__sort-item--active .header__sort-link{
+  color: var(--primary-color);
+}
+.header__sort-link::after{
+  content: "";
+  position: absolute;
+  top:50% ;
+  left: 0 ; 
+  height: 60%;
+  border-left: 1px solid #e5e5e5;
+  transform: translateY(-50%);
+}
+.header__sort-item:first-child .header__sort-link::after{
+  display: none;
+}
+.header__sort-item{
+  flex: 1;
+}
 /* app cotainer */
 .app__container{
   background-color: #f5f5f5;
@@ -772,6 +833,58 @@ color: var(--primary-color);
   left: 16px;
   
 } */
+/* mobile category */
+.mobile-category{
+
+}
+.mobile-category__list{
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  max-width: 100%;
+scrollbar-width: none;
+  overflow-x:auto;
+
+}
+.mobile-category__list::-webkit-scrollbar{
+  display: none;
+}
+.mobile-categpry__item{
+flex-shrink: 0;
+
+}
+.mobile-categpry__item + .mobile-categpry__item{
+  margin-left: 10px;
+}
+.mobile-categpry__item:nth-of-type(3n+1) .mobile-category__link{
+  background-color: #87afd8;
+}
+.mobile-categpry__item:nth-of-type(3n+2) .mobile-category__link{
+  background-color:#76c9bd ;
+}
+.mobile-categpry__item:nth-of-type(3n+3) .mobile-category__link{
+  background-color: #88cf81;
+}
+.mobile-category__link{
+  --line-height:2rem ;
+text-decoration: none;
+color: rgb(255, 255, 255);
+font-size: 1.4rem;
+font-weight: 300;
+line-height: var(--line-height);
+text-align: center;
+display: block;
+width: 110px;
+height:calc(var(--line-height)*2);
+border-radius: 4px;
+overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+user-select:none;
+-webkit-user-select: none;
+-webkit-tap-highlight-color: transparent;
+}
 
 /* home sort +filter */
 .home-filter{
@@ -981,7 +1094,7 @@ position: absolute;
 top:0 ;
  right: 0;
  width: 40px;
- height: 36px;
+
  text-align: center;
  background-color: rgba(252, 212, 54, 0.897);
  border-top-right-radius: 2px;
@@ -1014,6 +1127,7 @@ font-weight:500;
 .home-pagination{
   margin-top: 40px;
   margin-bottom: 32px;
+  padding-left: 0;
 }
 /* footer */
 .footer-line{
@@ -1098,4 +1212,17 @@ color: #737373;
   font-size: 1.7rem;
   margin: 0;
   line-height: 3.2rem;
+}
+.test{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  max-width: 100%;
+  color: white;
+  background-color: red;
+z-index: 55;
+transform: translateX(-100%);
+transition: all 0.4s;
 }
