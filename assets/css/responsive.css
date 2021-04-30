@@ -33,11 +33,20 @@ display: none;
 .app__content{
     padding-top: 8px;
 }
+.mobile-category
+{
+    display: block;
+}
 
+ 
 }
 
 /* Tablet */
 @media (min-width :740px ) and (max-width :1023px){
+    :root{
+        --header-height:68px ;
+      --navbar-height:0px ;
+    }
 .hide-on-tablet{
     display: none;
 }
@@ -48,6 +57,10 @@ display: none;
 }
 /* mobile */
 @media (max-width:739px) {
+    :root{
+        --header-height:54px ;
+      --navbar-height:0px ;
+    }
  .hide-on-mobile{
     display: none;
  }
@@ -103,5 +116,19 @@ display: none;
 }
 .app__content{
     margin: 0 6px;
+}
+.footer-policy {
+    display: none;
+}
+.footer__content{
+    padding: 0 20px;
+}
+
+.footer__heading{
+    text-align: center;
+}
+.footer__download ,
+.footer-item__link{
+    justify-content: center;
 }
 }
